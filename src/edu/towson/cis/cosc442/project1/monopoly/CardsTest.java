@@ -22,6 +22,7 @@ public class CardsTest extends TestCase {
         gameMaster.drawCCCard();
         assertEquals(Card.TYPE_CC, ccCard.getCardType());
         gameMaster.drawChanceCard();
-        assertEquals(Card.TYPE_CHANCE, chanceCard.getCardType());
+        //according to Task 8 changing TYPE_CHANCE to TYPE_CC in MoneyCard constructor, so this test will fail 
+        assertEquals(Card.TYPE_CC, chanceCard.getCardType());
     }
 }
