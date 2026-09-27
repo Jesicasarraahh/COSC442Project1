@@ -10,11 +10,18 @@ public class GameBoard {
 	//the key of colorGroups is the name of the color group.
 	private Hashtable<String, Integer> colorGroups = new Hashtable<String, Integer>();
 	private ArrayList<Card> communityChestCards = new ArrayList<Card>();
+	/**
+	 * Initializes a new game board and adds the starting Go cell.
+	 */
 	public GameBoard() {
 		Cell go = new GoCell();
 		addCell(go);
 	}
 
+    /**
+     * Adds a card to the appropriate deck based on its type (Community Chest or Chance).
+     * @param card the card to be added
+     */
     public void addCard(Card card) {
         if(card.getCardType() == Card.TYPE_CC) {
             communityChestCards.add(card);
@@ -23,10 +30,18 @@ public class GameBoard {
         }
     }
 	
+	/**
+	 * Adds a general cell to the game board.
+	 * @param cell the cell to add to the board
+	 */
 	public void addCell(Cell cell) {
 		cells.add(cell);
 	}
 	
+	/**
+	 * Adds a property cell to the game board and updates the count of properties in its color group.
+	 * @param cell the property cell to add
+	 */
 	public void addCell(PropertyCell cell) {
 		String colorGroup = cell.getColorGroup();
 		int propertyNumber = getPropertyNumberForColor(colorGroup);
@@ -34,28 +49,50 @@ public class GameBoard {
         cells.add(cell);
 	}
 
+    /**
+     * Draws the top card from the Community Chest deck, returns it, and places it back at the bottom.
+     * @return the drawn Community Chest card
+     */
     public Card drawCCCard() {
-        Card card = (Card)communityChestCards.get(0);
+        Card card = communityChestCards.get(0);
         communityChestCards.remove(0);
         addCard(card);
         return card;
     }
 
+    /**
+     * Draws the top card from the Chance deck, returns it, and places it back at the bottom.
+     * @return the drawn Chance card
+     */
     public Card drawChanceCard() {
-        Card card = (Card)chanceCards.get(0);
+        Card card = chanceCards.get(0);
         chanceCards.remove(0);
         addCard(card);
         return card;
     }
 
+	/**
+	 * Retrieves the cell located at the given index on the game board.
+	 * @param newIndex the index of the cell to retrieve
+	 * @return the cell at the specified index
+	 */
 	public Cell getCell(int newIndex) {
-		return (Cell)cells.get(newIndex);
+		return cells.get(newIndex);
 	}
 	
+	/**
+	 * Returns the total number of cells currently on the game board.
+	 * @return the count of cells on the board
+	 */
 	public int getCellNumber() {
 		return cells.size();
 	}
 	
+	/**
+	 * Returns an array of property cells belonging to the specified color group.
+	 * @param color the color group name to query
+	 * @return an array of property cells in the specified color group
+	 */
 	public PropertyCell[] getPropertiesInMonopoly(String color) {
 		PropertyCell[] monopolyCells = 
 			new PropertyCell[getPropertyNumberForColor(color)];
@@ -73,6 +110,11 @@ public class GameBoard {
 		return monopolyCells;
 	}
 	
+	/**
+	 * Returns the number of properties available for a given color group.
+	 * @param name the name of the color group
+	 * @return the count of properties in the specified color group
+	 */
 	public int getPropertyNumberForColor(String name) {
 		Integer number = (Integer)colorGroups.get(name);
 		if(number != null) {
@@ -81,9 +123,14 @@ public class GameBoard {
 		return 0;
 	}
 
+	/**
+	 * Searches for a cell by its name and returns it if found.
+	 * @param string the name of the cell to find
+	 * @return the cell matching the given name or null if not found
+	 */
 	public Cell queryCell(String string) {
 		for(int i = 0; i < cells.size(); i++){
-			Cell temp = (Cell)cells.get(i); 
+			Cell temp = cells.get(i); 
 			if(temp.getName().equals(string)) {
 				return temp;
 			}
@@ -91,9 +138,14 @@ public class GameBoard {
 		return null;
 	}
 	
+	/**
+	 * Finds the index of a cell by its name, returning -1 if not found.
+	 * @param string the name of the cell to locate
+	 * @return the index of the cell or -1 if not found
+	 */
 	public int queryCellIndex(String string){
 		for(int i = 0; i < cells.size(); i++){
-			Cell temp = (Cell)cells.get(i); 
+			Cell temp = cells.get(i); 
 			if(temp.getName().equals(string)) {
 				return i;
 			}
@@ -101,6 +153,9 @@ public class GameBoard {
 		return -1;
 	}
 
+    /**
+     * Clears all cards from the Community Chest deck.
+     */
     public void removeCards() {
         communityChestCards.clear();
     }
