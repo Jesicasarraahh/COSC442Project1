@@ -5,6 +5,9 @@ import junit.framework.TestCase;
 public class RailRoadCellTest extends TestCase {
 	GameMaster gameMaster;
 	
+	/**
+	 * Initializes the game master, sets up the game board, number of players, resets the game, and configures the mock GUI for testing.
+	 */
 	protected void setUp() {
 		gameMaster = GameMaster.instance();
 		gameMaster.setGameBoard(new GameBoardRailRoad());
@@ -13,6 +16,9 @@ public class RailRoadCellTest extends TestCase {
 		gameMaster.setGUI(new MockGUI());
 	}
 	
+	/**
+	 * Tests the action executed when a player lands on a railroad cell owned by another player, verifying rent payment and money transfer.
+	 */
 	public void testPlayerAction() {
 		RailRoadCell cell =
 			(RailRoadCell) gameMaster.getGameBoard().queryCell("Railroad A");
@@ -30,6 +36,9 @@ public class RailRoadCellTest extends TestCase {
 				gameMaster.getPlayer(0).getMoney());
 	}
 	
+	/**
+	 * Tests that a player can purchase a railroad property, and verifies the player's money and railroad count update correctly.
+	 */
 	public void testPurchaseRailroad() {
 		assertEquals(0, gameMaster.getPlayer(0).numberOfRR());
 		int cellIndex = gameMaster.getGameBoard().queryCellIndex("Railroad A");
@@ -39,6 +48,9 @@ public class RailRoadCellTest extends TestCase {
 		assertEquals(1, gameMaster.getPlayer(0).numberOfRR());
 	}
 
+	/**
+	 * Tests the rent value of railroad properties increases correctly as the player acquires more railroads.
+	 */
 	public void testRent() {
 		RailRoadCell rr1 =
 			(RailRoadCell) gameMaster.getGameBoard().queryCell("Railroad A");

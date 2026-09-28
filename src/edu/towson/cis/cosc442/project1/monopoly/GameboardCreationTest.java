@@ -8,6 +8,9 @@ import edu.towson.cis.cosc442.project1.monopoly.gui.GameBoardUtil;
 
 public class GameboardCreationTest extends TestCase{
 	
+	/**
+	 * Verifies that the cells of a SimpleGameBoard are correctly ordered and grouped along each board edge.
+	 */
 	public void testCellAddOrder() {
 		GameBoard board = new SimpleGameBoard();
 		List<?> northCells = GameBoardUtil.getNorthCells(board);
@@ -26,6 +29,9 @@ public class GameboardCreationTest extends TestCase{
 		assertEquals(0, eastCells.size());
 	}
 	
+	/**
+	 * Checks that the cells of a GameBoard14 are correctly ordered and grouped on each edge of the board.
+	 */
 	public void testCellAddOrder14() {
 		GameBoard board = new GameBoard14();
 		List<?> northCells = GameBoardUtil.getNorthCells(board);
@@ -52,6 +58,9 @@ public class GameboardCreationTest extends TestCase{
 		assertSame(board.queryCell("Yellow 2"), eastCells.get(1));
 	}
 	
+	/**
+	 * Tests the calculation of board dimensions for given numbers of cells in GameBoardUtil.
+	 */
 	public void testGameboardLayout() {
 		assertEquals(
 				new Dimension(1, 0), GameBoardUtil.calculateDimension(6));

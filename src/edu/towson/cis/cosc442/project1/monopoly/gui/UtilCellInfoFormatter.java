@@ -6,6 +6,11 @@ import edu.towson.cis.cosc442.project1.monopoly.UtilityCell;
 
 public class UtilCellInfoFormatter implements CellInfoFormatter {
 
+	/**
+	 * Formats the given Cell object into an HTML string representation specific to a UtilityCell including its name, price, and owner.
+	 * @param cell the Cell instance to format, expected to be a UtilityCell
+	 * @return an HTML-formatted string with the cell's name, price, and owner information
+	 */
 	public String format(Cell cell) {
         UtilityCell c = (UtilityCell)cell;
         StringBuffer buf = new StringBuffer();

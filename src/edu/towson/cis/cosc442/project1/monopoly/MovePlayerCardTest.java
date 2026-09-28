@@ -6,6 +6,9 @@ public class MovePlayerCardTest extends TestCase {
     GameMaster gameMaster;
     Card movePlayerCard;
     
+    /**
+     * Executes setUp.
+     */
     protected void setUp() {
 		gameMaster = GameMaster.instance();
 		gameMaster.setGameBoard(new GameBoardCCMovePlayer());
@@ -16,10 +19,16 @@ public class MovePlayerCardTest extends TestCase {
 		gameMaster.getGameBoard().addCard(movePlayerCard);
     }
     
+    /**
+     * Executes testJailCardLabel.
+     */
     public void testJailCardLabel() {
         assertEquals("Go to Blue 1", movePlayerCard.getLabel());
     }
     
+    /**
+     * Executes testMovePlayerCardAction.
+     */
     public void testMovePlayerCardAction() {
 		Card card = gameMaster.drawCCCard();
 		assertEquals(movePlayerCard, card);
@@ -28,6 +37,9 @@ public class MovePlayerCardTest extends TestCase {
 		assertEquals(gameMaster.getGameBoard().queryCell("Blue 1"), cell);
     }
     
+    /**
+     * Executes testMovePlayerCardUI.
+     */
     public void testMovePlayerCardUI() {
         gameMaster.movePlayer(0, 2);
         assertTrue(gameMaster.getGUI().isDrawCardButtonEnabled());

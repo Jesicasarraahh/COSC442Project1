@@ -3,6 +3,9 @@ package edu.towson.cis.cosc442.project1.monopoly;
 
 public class GameBoardCCJail extends GameBoard {
     
+    /**
+     * Constructs a game board with specific cells including property cells, card cells for Community Chest and Chance, and a jail cell.
+     */
     public GameBoardCCJail() {
 		super();
 		PropertyCell blue1 = new PropertyCell();

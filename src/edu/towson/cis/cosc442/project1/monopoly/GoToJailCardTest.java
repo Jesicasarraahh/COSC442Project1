@@ -6,6 +6,9 @@ public class GoToJailCardTest extends TestCase {
     GameMaster gameMaster;
     Card jailCard = new JailCard(Card.TYPE_CC);
     
+    /**
+     * Executes setUp.
+     */
     protected void setUp() {
 		gameMaster = GameMaster.instance();
 		gameMaster.setGameBoard(new GameBoardCCJail());
@@ -15,6 +18,9 @@ public class GoToJailCardTest extends TestCase {
 		gameMaster.getGameBoard().addCard(jailCard);
     }
     
+    /**
+     * Executes testJailCardAction.
+     */
     public void testJailCardAction() {
 		Card card = gameMaster.drawCCCard();
 		assertEquals(jailCard, card);
@@ -23,11 +29,17 @@ public class GoToJailCardTest extends TestCase {
 		assertEquals(gameMaster.getGameBoard().queryCell("Jail"), cell);
     }
     
+    /**
+     * Executes testJailCardLabel.
+     */
     public void testJailCardLabel() {
         assertEquals("Go to Jail immediately without collecting" +
         		" $200 when passing the GO cell", jailCard.getLabel());
     }
     
+    /**
+     * Executes testJailCardUI.
+     */
     public void testJailCardUI() {
         gameMaster.movePlayer(0, 1);
         assertTrue(gameMaster.getGUI().isDrawCardButtonEnabled());

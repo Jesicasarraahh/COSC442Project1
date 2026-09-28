@@ -7,6 +7,9 @@ public class PropertyCellTest extends TestCase {
 
 	GameMaster gameMaster;
 	
+	/**
+	 * Executes setUp.
+	 */
 	protected void setUp() {
 		gameMaster = GameMaster.instance();
 		gameMaster.setGameBoard(new SimpleGameBoard());
@@ -15,6 +18,9 @@ public class PropertyCellTest extends TestCase {
 		gameMaster.setGUI(new MockGUI());
 	}
 	
+	/**
+	 * Executes testPlayerAction.
+	 */
 	public void testPlayerAction() {
 		PropertyCell cell =
 			(PropertyCell) gameMaster.getGameBoard().queryCell("Blue 3");

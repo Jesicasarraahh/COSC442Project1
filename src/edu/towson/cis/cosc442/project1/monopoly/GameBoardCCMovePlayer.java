@@ -2,6 +2,9 @@ package edu.towson.cis.cosc442.project1.monopoly;
 
 
 public class GameBoardCCMovePlayer extends GameBoard {
+    /**
+     * Constructs a GameBoardCCMovePlayer with initialized property, card, jail, and chance cells and respective cards.
+     */
     public GameBoardCCMovePlayer() {
 		super();
 		PropertyCell blue1 = new PropertyCell();

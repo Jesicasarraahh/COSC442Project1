@@ -1,6 +1,9 @@
 package edu.towson.cis.cosc442.project1.monopoly;
 
 public class GameBoardUtility extends GameBoard {
+	/**
+	 * Constructs a GameBoardUtility object initializing the Monopoly game board with predefined cells including properties, railroads, utilities, jail, free parking, and go to jail.
+	 */
 	public GameBoardUtility() {
 		super();
 		PropertyCell blue1 = new PropertyCell();

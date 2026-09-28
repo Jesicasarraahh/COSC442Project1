@@ -2,6 +2,9 @@
 package edu.towson.cis.cosc442.project1.monopoly;
 
 public class GameBoardFreeParking extends GameBoard {
+	/**
+	 * Constructs a GameBoard instance configured with a JailCell, FreeParkingCell, and GoToJailCell added to the board.
+	 */
 	public GameBoardFreeParking() {
 		super();
 		JailCell jail = new JailCell();

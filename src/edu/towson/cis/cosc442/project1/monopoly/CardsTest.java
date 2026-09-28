@@ -7,6 +7,9 @@ public class CardsTest extends TestCase {
     
     GameMaster gameMaster;
 
+    /**
+     * Executes setUp.
+     */
     protected void setUp() {
         gameMaster = GameMaster.instance();
         gameMaster.setGameBoard(new GameBoardCCGainMoney());
@@ -18,6 +21,9 @@ public class CardsTest extends TestCase {
         gameMaster.getGameBoard().addCard(ccCard);
     }
     
+    /**
+     * Executes testCardType.
+     */
     public void testCardType() {
         gameMaster.drawCCCard();
         assertEquals(Card.TYPE_CC, ccCard.getCardType());

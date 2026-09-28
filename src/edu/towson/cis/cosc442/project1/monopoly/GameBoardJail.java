@@ -1,6 +1,9 @@
 package edu.towson.cis.cosc442.project1.monopoly;
 
 public class GameBoardJail extends GameBoard {
+	/**
+	 * Constructs a GameBoardJail instance by initializing property cells, jail-related cells, and adding them to the game board with specific attributes.
+	 */
 	public GameBoardJail() {
 		super();
 		PropertyCell blue1 = new PropertyCell();

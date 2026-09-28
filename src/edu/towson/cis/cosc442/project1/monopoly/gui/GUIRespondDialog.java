@@ -18,6 +18,9 @@ public class GUIRespondDialog extends JDialog implements RespondDialog {
 	private boolean response;
     JTextArea txtMessage = new JTextArea();
     
+    /**
+     * Constructs a modal dialog with Yes and No buttons for user response and a text area to display messages.
+     */
     public GUIRespondDialog() {
         JButton btnYes = new JButton("Yes");
         JButton btnNo = new JButton("No");
@@ -35,6 +38,10 @@ public class GUIRespondDialog extends JDialog implements RespondDialog {
         
         btnYes.addActionListener(new ActionListener(){
             @SuppressWarnings("deprecation")
+			/**
+			 * Handles the action event triggered by clicking the No button, records a negative response, and hides the dialog.
+			 * @param e the action event triggered by the No button click
+			 */
 			public void actionPerformed(ActionEvent e) {
                 response = true;
                 hide();
@@ -43,6 +50,10 @@ public class GUIRespondDialog extends JDialog implements RespondDialog {
 
         btnNo.addActionListener(new ActionListener(){
             @SuppressWarnings("deprecation")
+			/**
+			 * Handles the action event triggered by clicking the No button, records a negative response, and hides the dialog.
+			 * @param e the action event triggered by the No button click
+			 */
 			public void actionPerformed(ActionEvent e) {
                 response = false;
                 hide();
@@ -53,10 +64,18 @@ public class GUIRespondDialog extends JDialog implements RespondDialog {
         pack();
     }
 
+    /**
+     * Returns the user's response as a boolean indicating Yes (true) or No (false).
+     * @return the user's response
+     */
     public boolean getResponse() {
         return response;
     }
     
+    /**
+     * Sets the trade deal message to be displayed in the dialog's text area.
+     * @param deal the trade deal whose message is to be displayed
+     */
     public void setDeal(TradeDeal deal) {
         txtMessage.setText(deal.makeMessage());
     }

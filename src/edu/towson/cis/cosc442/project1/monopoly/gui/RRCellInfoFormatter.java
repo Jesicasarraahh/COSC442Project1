@@ -5,6 +5,11 @@ import edu.towson.cis.cosc442.project1.monopoly.Player;
 import edu.towson.cis.cosc442.project1.monopoly.RailRoadCell;
 
 public class RRCellInfoFormatter implements CellInfoFormatter {
+    /**
+     * Formats the information of a RailRoadCell into an HTML string displaying its name, price, and owner.
+     * @param cell the Cell object to format, expected to be a RailRoadCell
+     * @return an HTML string representing the formatted cell information
+     */
     public String format(Cell cell) {
         RailRoadCell c = (RailRoadCell)cell;
         StringBuffer buf = new StringBuffer();

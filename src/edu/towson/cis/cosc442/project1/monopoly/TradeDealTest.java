@@ -4,6 +4,9 @@ import junit.framework.TestCase;
 
 public class TradeDealTest extends TestCase {
     
+    /**
+     * Initializes the game state before each test by resetting the game and setting up two players with predefined names.
+     */
     public void setUp() {
         GameMaster gameMaster = GameMaster.instance();
         gameMaster.reset();
@@ -12,6 +15,9 @@ public class TradeDealTest extends TestCase {
         gameMaster.getPlayer(1).setName("Seller");
     }
 
+    /**
+     * Tests the makeMessage method of TradeDeal to ensure it generates the correct trade offer message string.
+     */
     public void testMakeMessage() {
         TradeDeal deal = new TradeDeal();
         deal.setAmount(200);
